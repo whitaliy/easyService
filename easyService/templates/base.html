@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}The Last Social Media You'll Ever Need{% endblock %} | Yatube</title>
+    <!-- Загрузка статики -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}">
+    <script src="{% static 'jquery/dist/jquery.min.js' %}"></script>
+    <script src="{% static 'bootstrap/dist/js/bootstrap.min.js' %}"></script>
+	<style>
+	ul, #myUL {
+	  list-style-type: none;
+	}
+
+	#myUL {
+	  margin: 0;
+	  padding: 0;
+	}
+
+	.caret {
+	  cursor: pointer;
+	  -webkit-user-select: none; /* Safari 3.1+ */
+	  -moz-user-select: none; /* Firefox 2+ */
+	  -ms-user-select: none; /* IE 10+ */
+	  user-select: none;
+	}
+
+	.caret::before {
+	  content: "\25B6";
+	  color: black;
+	  display: inline-block;
+	  margin-right: 6px;
+	}
+
+	.caret-down::before {
+	  -ms-transform: rotate(90deg); /* IE 9 */
+	  -webkit-transform: rotate(90deg); /* Safari */'
+	  transform: rotate(90deg);
+	}
+
+	.nested {
+	  display: none;
+	}
+
+	.active {
+	  display: block;
+	}
+	</style>
+</head>
+
+<body>
+
+    <div id="sidebar">
+        <ul>
+            <li><a href="/">Главная</a></li>
+            <li><a href="/about/">О сайте</a></li>
+            <li><a href="/list/">Сообщения</a></li>
+        </ul>
+    </div>
+    <main>
+        <div class="container">
+            <h1>{% block header %}Вот тут должны быть все активы{% endblock %}</h1>
+            {% block content %}
+            <!-- Содержимое страницы -->
+            {% endblock %}
+        </div>
+    </main>
+
+	<script>
+	var toggler = document.getElementsByClassName("box");
+	var i;
+
+	for (i = 0; i < toggler.length; i++) {
+	  toggler[i].addEventListener("click", function() {
+	    this.parentElement.querySelector(".nested").classList.toggle("active");
+	    this.classList.toggle("check-box");
+	  });
+	}
+	</script>
+</body>
+
+</html>

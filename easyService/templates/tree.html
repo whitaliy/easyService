@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+	 <div id="content">
+		<li><span class="box">объекты</span>
+			<ul class="nested">
+				{% for Dir in Dirs %}
+					<li><span class="box">{{Dir}}</span>
+						<ul class="nested">
+							{% for Building in Buildings %}
+									{% if Building.dir.id == forloop.parentloop.counter %}
+										<li><span class="box">{{Building.name}}</span>
+											<ul class="nested">
+												{% for Cabinet in Cabinets %}
+
+													{% if Cabinet.buildings.id != forloop.parentloop.counter %}
+														<li><span class="box">{{Cabinet.name}}</span>
+															<ul class="nested">
+																<li><span class="box">{{Object.type}}</span>
+																	<ul class="nested">
+																		<li><span class="box">{{Object}}</span>
+																			<ul class="nested">
+																			<li>Инвентарный номер: {{Object.serial}}</li>
+																			<li>Модель актива: {{Object.model}}</li>
+																			<li>Ip адрес: {{Object.ip}}</li>
+																			<li>Mac адрес: {{Object.mac}}</li>
+																			<li>Примечание: {{Object.note}}</li>
+
+																			</ul>
+																		</li>
+																	</ul>
+																</li>
+															</ul>
+														</li>
+													{% endif %}
+												{% endfor %}
+											</ul>
+										</li>
+									{% endif %}
+							{% endfor %}
+						</ul>
+					</li>
+				{% endfor %}
+			</ul>
+		</li>
+    </div>
+{% endblock %}
+
+
+
