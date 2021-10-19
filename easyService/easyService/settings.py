@@ -34,6 +34,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'table',
+    'phonebook',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -57,6 +58,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'easyService.urls'
 
 TEMPLATES_DIR = os.path.join(BASE_DIR, "templates")
+
+
 
 TEMPLATES = [
     {
@@ -127,7 +130,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 # задаём адрес директории, куда командой *collectstatic* будет собрана вся статика
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
+#STATIC_ROOT = os.path.join(BASE_DIR, "static")
+
+STATICFILES_DIRS = [
+   os.path.join(BASE_DIR, "static"),
+]
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

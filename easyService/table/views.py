@@ -10,6 +10,7 @@ from .models import Type
 from .models import Сabinet
 from .models import Dir
 
+
 def tree(request):
 # одна строка вместо тысячи слов на SQL
     latestdir = Dir.objects.all()

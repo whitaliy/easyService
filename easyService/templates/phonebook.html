@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Title</title>
+	<link rel="stylesheet" href="/static/phone.css">
+	<title>Телефонный справочник ТГКБ1</title>
+	<style>
+	   body {
+	    background: url(/static/fon.jpg) no-repeat;
+	    -moz-background-size: 100%; /* Firefox 3.6+ */
+	    -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+	    -o-background-size: 100%; /* Opera 9.6+ */
+	    background-size: 100%; /* Современные браузеры */
+	   }
+    </style>
+</head>
+<body>
+<h1 align="left" style="color:Black"><img src="/static/logo-600x600-png.png" height="150" width="150" hspace="30">Телефонный справочник Тольяттинской городской клинической больницы №1</h1>
+
+
+
+	<table class="table_blur">
+	  <tr>
+	    <th>ФИО</th>
+	    <th>Должность</th>
+		<th>Отдел</th>
+		<th>Вн. телефон</th>
+		<th>Моб. телефон</th>
+		<th>Кабинет</th>
+		<th>Почтовый ящик</th>
+		</tr>
+	{% for MAN in MANS %}
+	  <tr>
+	    <td>{{MAN.name}}</td>
+	    <td>{{MAN.position}}</td>
+		<td>{{MAN.department}}</td>
+		<td>{{MAN.tel}}</td>
+		<td>{{MAN.mobtel}}</td>
+		<td>{{MAN.cab}}</td>
+		<td>{{MAN.email}}</td>
+	    </tr>
+	{% endfor %}
+	</table>
+</body>
+</html>

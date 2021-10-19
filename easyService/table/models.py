@@ -10,12 +10,18 @@ class Dir(models.Model):
     name = models.CharField(verbose_name=_("Категория"), max_length=40)
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name = 'Категория'
+        verbose_name_plural = 'Категория'
 
 class Buildings (models.Model):
     dir = models.ForeignKey(Dir, verbose_name=_("Категория"), on_delete=models.CASCADE, related_name="buildings")
     name = models.CharField(verbose_name=_("Корпус"), max_length=40)
     def __str__(self):
         return self.dir.name+'      '+self.name
+    class Meta:
+        verbose_name = 'Корпус'
+        verbose_name_plural = 'Корпус'
 
 class Сabinet (models.Model):
     #dir = models.ForeignKey(Dir, verbose_name=_("Категория"), on_delete=models.CASCADE)
@@ -24,11 +30,18 @@ class Сabinet (models.Model):
     def __str__(self):
         return self.name+'  '+self.buildings.dir.name+'  ' +self.buildings.name
 
+    class Meta:
+        verbose_name = 'Помещение'
+        verbose_name_plural = 'Помещение'
+
 class Type (models.Model):
 
     name = models.CharField(verbose_name=_("Тип актива"), max_length=40)
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name = 'Тип актива'
+        verbose_name_plural = 'Тип актива'
 
 class Object (models.Model):
     dir = models.ForeignKey(Dir, verbose_name=_("Категория"), on_delete=models.CASCADE, blank=True,null=True)
@@ -44,7 +57,14 @@ class Object (models.Model):
     note=models.TextField(verbose_name=_("Примечание"))
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = 'Актив'
+        verbose_name_plural = 'Актив'
 #     def __unicode__(self): #для дерева в админке
 #         return self.name #для дерева в админке
 # mptt.register(Object,) #для дерева в админке
+
+
+
 
