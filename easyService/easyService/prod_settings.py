@@ -31,5 +31,5 @@ DATABASES = {
 
 # задаём адрес директории, куда командой *collectstatic* будет собрана вся статика
 STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATIC_DIRS = os.path.join(BASE_DIR, "static")
-STATICFILES_DIRS = [STATIC_DIR]
+#STATIC_DIRS = os.path.join(BASE_DIR, "static")
+#STATICFILES_DIRS = [STATIC_DIR]
