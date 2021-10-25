@@ -16,3 +16,18 @@ SECRET_KEY = 'django-insecure-bi=(0k_cdi9zzc@t!_y(v&h!dj(19uieyxzx=!*=r__@b%@m)c
 DEBUG = True
 
 ALLOWED_HOSTS = []
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+
+
+
+STATIC_DIR = os.path.join(BASE_DIR, "static")
+STATICFILES_DIRS = [STATIC_DIR]
